@@ -2,6 +2,21 @@ const axios = require("axios");
 
 const getTodo = async (todoId) => {
   //your code here
+  try {
+    const userIdCheck = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/" + todoId
+    );
+    const idCheck = await axios.get(
+      "https://jsonplaceholder.typicode.com/users/" + userIdCheck.data.userId
+    );
+    const result = {};
+    result.name = idCheck.data.name;
+    result.title = userIdCheck.data.title;
+    result.completed = userIdCheck.data.completed;
+    return result;
+  } catch (error) {
+    return "INVALID USER ID";
+  }
 };
 
 //test case

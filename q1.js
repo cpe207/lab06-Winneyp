@@ -2,6 +2,14 @@ const axios = require("axios");
 
 const getUser = async (userId) => {
   //your code here
+  try {
+    const idCheck = await axios.get(
+      "https://jsonplaceholder.typicode.com/users/" + userId
+    );
+    return idCheck.data.name;
+  } catch (error) {
+    return "INVALID USER ID";
+  }
 };
 
 //test case
