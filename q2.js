@@ -10,7 +10,7 @@ const getTodo = async (todoId) => {
       "https://jsonplaceholder.typicode.com/users/" + userIdCheck.data.userId
     );
     const result = {};
-    result.name = idCheck.data.name;
+    result.owner = idCheck.data.name;
     result.title = userIdCheck.data.title;
     result.completed = userIdCheck.data.completed;
     return result;
