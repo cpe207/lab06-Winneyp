@@ -15,7 +15,7 @@ const getTodo = async (todoId) => {
     result.completed = userIdCheck.data.completed;
     return result;
   } catch (error) {
-    return "INVALID USER ID";
+    return "INVALID TODO ID";
   }
 };
 
